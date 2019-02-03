@@ -6,8 +6,17 @@ class BookList extends Component {
         super(props);
         
         this.state = {
-            books: []
+            books: [],
+            chosenBook: null
         };
+    }
+
+    handleClick = (book, event) => {
+        event.preventDefault();
+
+        this.setState({
+            chosenBook: book
+        });
     }
 
     componentDidMount() {
@@ -18,14 +27,30 @@ class BookList extends Component {
             });
     }
 
+    getBookLinks(books) {
+        const bookLinks = books.map(book => (
+            <li key={book.isbn}>
+                <a
+                    onClick={this.handleClick.bind(this, book)}
+                    href={book.isbn}
+                >
+                    {book.title}
+                </a>
+            </li>
+        ));
+
+        return (
+            <ul>
+                {bookLinks}
+            </ul>
+        );
+    }
+
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.books.map(book => 
-                        <Book key={book.isbn} {...book} />
-                    )}
-                </ul>
+                {this.getBookLinks(this.state.books)}
+                {this.state.chosenBook && <Book {...this.state.chosenBook} />}
             </div>
         );
     }
