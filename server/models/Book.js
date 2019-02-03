@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const bookSchema = new mongoose.Schema({
   title: String,
   description: String,
-  isbn: String,
+  isbn: {
+    type: String,
+    unique: true,
+    match: /^\d{13}$/
+  },
   author: String,
   publication_data: Date,
   genre: String,
