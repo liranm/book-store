@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost:27017/books', {
 });
 
 app.use(cors());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', async (req, res) => {
