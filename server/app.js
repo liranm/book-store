@@ -25,7 +25,11 @@ app.get('/', async (req, res) => {
 app.post('/add', async (req, res) => {
     const { title, description, isbn, author, publication_date, genre, price } = req.body;
 
-    await Book.create({ title, description, isbn, author, publication_date, genre, price });
+    try {
+        await Book.create({ title, description, isbn, author, publication_date, genre, price });
+    } catch(err) {
+        return res.status(400).send(err.message);
+    }
 
     res.send('Book added!');
 });
@@ -33,7 +37,11 @@ app.post('/add', async (req, res) => {
 app.delete('/remove', async (req, res) => {
     const { isbn } = req.body;
 
-    await Book.deleteOne({ isbn });
+    try {
+        await Book.deleteOne({ isbn });
+    } catch(err) {
+        return res.status(400).send(err.message);
+    }
 
     res.send('Book removed!');
 });
