@@ -22,8 +22,10 @@ class BookList extends Component {
         });
     }
 
-    handleRemove = (event) => {
-        this.removeBook(this.state.chosenBook);
+    handleRemove(event, book) {
+        event.preventDefault();
+        
+        this.removeBook(book);
     }
 
     handleAdd = (event) => {
@@ -71,6 +73,12 @@ class BookList extends Component {
         const bookLinks = books.map(book => (
             <li key={book.isbn}>
                 <a
+                    onClick={(event) => this.handleRemove(event, book)}
+                    href="remove"
+                >
+                    x
+                </a>
+                <a
                     onClick={this.handleClick.bind(this, book)}
                     href={book.isbn}
                 >
@@ -97,14 +105,6 @@ class BookList extends Component {
                 </button>
                 {this.getBookLinks(this.state.books)}
                 {this.state.chosenBook && <Book {...this.state.chosenBook} />}
-                {this.state.chosenBook && 
-                    <button
-                        type="button"
-                        onClick={this.handleRemove}
-                    >
-                        Remove book
-                    </button>
-                }
                 <BookForm isShown={this.state.showForm} />
             </div>
         );
