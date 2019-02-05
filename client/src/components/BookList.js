@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import BookForm from './BookForm';
 
 class BookList extends Component {
     constructor(props) {
@@ -90,6 +91,7 @@ class BookList extends Component {
                         Remove book
                     </button>
                 }
+                <BookForm />
             </div>
         );
     }
