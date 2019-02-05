@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Book from './Book';
 import BookForm from './BookForm';
 
@@ -8,7 +9,8 @@ class BookList extends Component {
         
         this.state = {
             books: [],
-            chosenBook: null
+            chosenBook: null,
+            showForm: false
         };
     }
 
@@ -22,6 +24,12 @@ class BookList extends Component {
 
     handleRemove = (event) => {
         this.removeBook(this.state.chosenBook);
+    }
+
+    handleAdd = (event) => {
+        this.setState({
+            showForm: true
+        });
     }
 
     componentDidMount() {
@@ -81,6 +89,12 @@ class BookList extends Component {
     render() {
         return (
             <div>
+                <button
+                    type="button"
+                    onClick={this.handleAdd}
+                >
+                    Add book
+                </button>
                 {this.getBookLinks(this.state.books)}
                 {this.state.chosenBook && <Book {...this.state.chosenBook} />}
                 {this.state.chosenBook && 
@@ -91,7 +105,7 @@ class BookList extends Component {
                         Remove book
                     </button>
                 }
-                <BookForm />
+                <BookForm isShown={this.state.showForm} />
             </div>
         );
     }

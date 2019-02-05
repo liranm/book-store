@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class BookForm extends Component {
     constructor(props) {
@@ -56,7 +57,11 @@ class BookForm extends Component {
         return (
             <form
                 onSubmit={this.handleSubmit}
-                className="bookForm"
+                className={classNames({
+                    bookForm: true,
+                    show: this.props.isShown,
+                    hide: !this.props.isShown
+                })}
             >
                 <label>Title</label>
                 <input

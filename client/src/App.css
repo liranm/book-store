@@ -22,3 +22,11 @@
 .bookForm__input {
   width: 100%;
 }
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
