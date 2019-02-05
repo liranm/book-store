@@ -1,19 +1,33 @@
-.App {
-  text-align: center;
-}
-
 .App-content {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.bookStore {
+  display: flex;
+  position: relative;
+  width: 80vw;
+}
+
+.addBtn {
+  position: absolute;
+}
+
+.bookList {
+  width: 50%;
+}
+
+.book {
+  width: 50%;
+}
+
 .bookForm {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -24,9 +38,9 @@
 }
 
 .show {
-  visibility: visible;
+  display: block;
 }
 
 .hide {
-  visibility: hidden;
+  display: none;
 }

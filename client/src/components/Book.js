@@ -2,7 +2,7 @@ import React from 'react';
 
 const Book = ({ title, description, isbn, author, publication_date, genre, price }) => {
     return (
-        <div>
+        <div className="book">
             <h1>{title}</h1>
             <h2>{description}</h2>
             <p>{isbn}</p>

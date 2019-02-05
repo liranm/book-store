@@ -134,7 +134,7 @@ class BookList extends Component {
         ));
 
         return (
-            <ul>
+            <ul className="bookList">
                 {bookLinks}
             </ul>
         );
@@ -142,10 +142,11 @@ class BookList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="bookStore">
                 <button
                     type="button"
                     onClick={this.handleAdd}
+                    className="addBtn"
                 >
                     Add book
                 </button>
