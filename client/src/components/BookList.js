@@ -18,19 +18,21 @@ class BookList extends Component {
         event.preventDefault();
 
         this.setState({
-            chosenBook: book
+            chosenBook: book,
+            showForm: false
         });
     }
 
     handleRemove(event, book) {
         event.preventDefault();
-        
+
         this.removeBook(book);
     }
 
     handleAdd = (event) => {
         this.setState({
-            showForm: true
+            showForm: true,
+            chosenBook: null
         });
     }
 
