@@ -12,3 +12,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.bookForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bookForm__input {
+  width: 100%;
+}
