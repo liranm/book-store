@@ -117,16 +117,21 @@ class BookList extends Component {
 
     getBookLinks(books) {
         const bookLinks = books.map(book => (
-            <li key={book.isbn}>
+            <li
+                key={book.isbn}
+                className="bookList__item"
+            >
                 <a
                     onClick={(event) => this.handleRemove(event, book)}
                     href="remove"
+                    className="bookList__remove-item"
                 >
                     x
                 </a>
                 <a
                     onClick={this.handleClick.bind(this, book)}
                     href={book.isbn}
+                    className="bookList__title"
                 >
                     {book.title}
                 </a>

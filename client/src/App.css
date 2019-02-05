@@ -1,3 +1,11 @@
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited, a:focus, a:hover, a:active {
+  color: white;
+}
+
 .App-content {
   background-color: #282c34;
   min-height: 100vh;
@@ -20,6 +28,24 @@
 
 .bookList {
   width: 50%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.bookList__item {
+  margin: 0.2rem 0;
+}
+
+.bookList__remove-item {
+  margin-right: 1rem;
+}
+
+.bookList__remove-item:link, .bookList__remove-item:visited, .bookList__remove-item:focus {
+  color: white;
+}
+
+.bookList__remove-item:hover, .bookList__remove-item:active {
+  color:orange;
 }
 
 .book {
