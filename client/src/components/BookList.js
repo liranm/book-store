@@ -10,7 +10,14 @@ class BookList extends Component {
         this.state = {
             books: [],
             chosenBook: null,
-            showForm: false
+            showForm: false,
+            title: '',
+            description: '',
+            isbn: '',
+            author: '',
+            publicationDate: '',
+            genre: '',
+            price: ''
         };
     }
 
@@ -36,12 +43,49 @@ class BookList extends Component {
         });
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        this.addBook(this.state);
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
     componentDidMount() {
         fetch('http://localhost:3000')
             .then(response => response.json())
             .then((books) => {
                 this.setState({ books });
             });
+    }
+
+    async addBook({ title, description, isbn, author, publicationDate, genre, price }) {
+        const res = await fetch(
+            'http://localhost:3000/add',
+            {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: 'POST',
+                body: JSON.stringify({ title, description, isbn, author, publication_date: publicationDate, genre, price })
+            }
+        );
+
+        if(res.status === 200) {
+            this.setState({
+                title: '',
+                description: '',
+                isbn: '',
+                author: '',
+                publicationDate: '',
+                genre: '',
+                price: ''
+            });
+        }
     }
 
     async removeBook(book) {
@@ -107,7 +151,11 @@ class BookList extends Component {
                 </button>
                 {this.getBookLinks(this.state.books)}
                 {this.state.chosenBook && <Book {...this.state.chosenBook} />}
-                <BookForm isShown={this.state.showForm} />
+                <BookForm
+                    { ...this.state }
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                />
             </div>
         );
     }
