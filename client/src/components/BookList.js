@@ -37,6 +37,8 @@ class BookList extends Component {
     }
 
     handleAdd = (event) => {
+        event.preventDefault();
+
         this.setState({
             showForm: true,
             chosenBook: null
@@ -140,6 +142,15 @@ class BookList extends Component {
 
         return (
             <ul className="bookList">
+                <li>
+                    <a
+                        href="add"
+                        onClick={this.handleAdd}
+                        className="bookList__add-item"
+                    >
+                        Add book
+                    </a>
+                </li>
                 {bookLinks}
             </ul>
         );
@@ -148,13 +159,6 @@ class BookList extends Component {
     render() {
         return (
             <div className="bookStore">
-                <button
-                    type="button"
-                    onClick={this.handleAdd}
-                    className="addBtn"
-                >
-                    Add book
-                </button>
                 {this.getBookLinks(this.state.books)}
                 {this.state.chosenBook && <Book {...this.state.chosenBook} />}
                 <BookForm

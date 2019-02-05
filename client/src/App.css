@@ -18,22 +18,35 @@ a:link, a:visited, a:focus, a:hover, a:active {
 
 .bookStore {
   display: flex;
-  position: relative;
   width: 80vw;
-}
-
-.addBtn {
-  position: absolute;
 }
 
 .bookList {
   width: 50%;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .bookList__item {
   margin: 0.2rem 0;
+}
+
+.bookList__item:active {
+  filter: saturate(150%);
+}
+
+.bookList__add-item {
+  background-color: blue;
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.bookList__add-item:active {
+  filter: saturate(150%);
 }
 
 .bookList__remove-item {
