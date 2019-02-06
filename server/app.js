@@ -33,7 +33,13 @@ app.post('/add', async (req, res) => {
     try {
         await Book.create({ title, description, isbn, author, publication_date, genre, price });
     } catch(err) {
-        const message = err.code === 11000 ? 'ISBN already exists' : err.message;
+        let message = err.message;
+
+        if(err.errors && err.errors.isbn) {
+            message = 'ISBN must be 13 digits number';
+        } else if (err.code === 11000) {
+            message = 'ISBN already exists';
+        }
         
         return res.status(400).send(message);
     }
