@@ -9,7 +9,7 @@ const bookSchema = new mongoose.Schema({
     match: /^\d{13}$/
   },
   author: String,
-  publication_data: Date,
+  publication_date: Date,
   genre: String,
   price: Number
 });
