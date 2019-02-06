@@ -23,6 +23,24 @@ a:link, a:visited, a:focus, a:hover, a:active {
 .bookStore {
   display: flex;
   width: 80vw;
+  padding-top: 60px;
+  position: relative;
+}
+
+.bookStore__message {
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #D8E4FF;
+  color: #282C34;
+  box-sizing: border-box;
+  text-align: center;
+  transition: opacity 0.5s ease;
 }
 
 .bookList {
@@ -102,6 +120,7 @@ a:link, a:visited, a:focus, a:hover, a:active {
   padding: 20px;
   border-radius: 2px;
   box-shadow: 1px 1px 6px #D8E4FF;
+  box-sizing: border-box;
 }
 
 .bookForm__label {
@@ -133,10 +152,18 @@ a:link, a:visited, a:focus, a:hover, a:active {
   filter: saturate(150%);
 }
 
-.show {
+.display {
   display: block;
 }
 
-.hide {
+.remove {
   display: none;
+}
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
 }

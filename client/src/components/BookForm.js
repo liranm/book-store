@@ -17,8 +17,8 @@ const BookForm = ({
         onSubmit={handleSubmit}
         className={classNames({
             bookForm: true,
-            show: showForm,
-            hide: !showForm
+            display: showForm,
+            remove: !showForm
         })}
     >
         <label className="bookForm__label">Title</label>

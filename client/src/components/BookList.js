@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import Book from './Book';
 import BookForm from './BookForm';
@@ -17,7 +18,8 @@ class BookList extends Component {
             author: '',
             publicationDate: '',
             genre: '',
-            price: ''
+            price: '',
+            showMessage: false
         };
     }
 
@@ -77,6 +79,13 @@ class BookList extends Component {
             }
         );
 
+        const message = await res.text();
+
+        this.setState({
+            message,
+            showMessage: true
+        });
+
         if(res.status === 200) {
             this.setState({
                 title: '',
@@ -88,6 +97,8 @@ class BookList extends Component {
                 price: ''
             });
         }
+
+        setTimeout(() => this.setState({ showMessage: false }), 3000);
     }
 
     async removeBook(book) {
@@ -104,6 +115,13 @@ class BookList extends Component {
             }
         );
 
+        const message = await res.text();
+
+        this.setState({
+            message,
+            showMessage: true
+        });
+
         if(res.status === 200) {
             const removedBookIndex = this.state.books.indexOf(book);
 
@@ -115,6 +133,8 @@ class BookList extends Component {
                 chosenBook: null
             });
         }
+
+        setTimeout(() => this.setState({ showMessage: false }), 3000);
     }
 
     getBookLinks(books) {
@@ -159,6 +179,15 @@ class BookList extends Component {
     render() {
         return (
             <div className="bookStore">
+                <p
+                    className={classNames({
+                        bookStore__message: true,
+                        show: this.state.showMessage,
+                        hide: !this.state.showMessage
+                    })}
+                >
+                    {this.state.message}
+                </p>
                 {this.getBookLinks(this.state.books)}
                 {this.state.chosenBook && <Book {...this.state.chosenBook} />}
                 <BookForm

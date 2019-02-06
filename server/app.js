@@ -26,10 +26,16 @@ app.get('/', async (req, res) => {
 app.post('/add', async (req, res) => {
     const { title, description, isbn, author, publication_date, genre, price } = req.body;
 
+    if(!title || !description || !isbn || !author || !publication_date || !genre || !price ) {
+        return res.status(400).send('Missing required data');
+    }
+
     try {
         await Book.create({ title, description, isbn, author, publication_date, genre, price });
     } catch(err) {
-        return res.status(400).send(err.message);
+        const message = err.code === 11000 ? 'ISBN already exists' : err.message;
+        
+        return res.status(400).send(message);
     }
 
     res.send('Book added!');
