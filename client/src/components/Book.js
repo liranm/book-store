@@ -16,7 +16,7 @@ const Book = ({ title, description, isbn, author, publication_date, genre, price
             <label className="book__label">Genre</label>
             <p className="book__field">{genre}</p>
             <label className="book__label">Price</label>
-            <p className="book__field">{price.toFixed(2)} $</p>
+            <p className="book__field">{Number(price).toFixed(2)} $</p>
         </div>
     );
 };

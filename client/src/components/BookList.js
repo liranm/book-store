@@ -88,6 +88,10 @@ class BookList extends Component {
 
         if(res.status === 200) {
             this.setState({
+                books: [
+                    ...this.state.books,
+                    { title, description, isbn, author, publicationDate, genre, price }
+                ],
                 title: '',
                 description: '',
                 isbn: '',
@@ -171,7 +175,7 @@ class BookList extends Component {
                         Add book
                     </a>
                 </li>
-                {bookLinks}
+                {bookLinks.length ? bookLinks : <li><p>List is empty, please add books</p></li>}
             </ul>
         );
     }
