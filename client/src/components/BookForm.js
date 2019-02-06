@@ -21,7 +21,7 @@ const BookForm = ({
             hide: !showForm
         })}
     >
-        <label>Title</label>
+        <label className="bookForm__label">Title</label>
         <input
             type="text"
             value={title}
@@ -30,7 +30,7 @@ const BookForm = ({
             className="bookForm__input"
         />
 
-        <label>Description</label>
+        <label className="bookForm__label">Description</label>
         <input
             type="text"
             value={description}
@@ -39,7 +39,7 @@ const BookForm = ({
             className="bookForm__input"
         />
 
-        <label>ISBN</label>
+        <label className="bookForm__label">ISBN</label>
         <input
             type="text"
             value={isbn}
@@ -48,7 +48,7 @@ const BookForm = ({
             className="bookForm__input"
         />
 
-        <label>Author</label>
+        <label className="bookForm__label">Author</label>
         <input
             type="text"
             value={author}
@@ -57,7 +57,7 @@ const BookForm = ({
             className="bookForm__input"
         />
 
-        <label>Publication Date</label>
+        <label className="bookForm__label">Publication Date</label>
         <input
             type="date"
             value={publicationDate}
@@ -66,7 +66,7 @@ const BookForm = ({
             className="bookForm__input"
         />
 
-        <label>Price</label>
+        <label className="bookForm__label">Price</label>
         <input
             type="number"
             value={price}
@@ -75,11 +75,12 @@ const BookForm = ({
             className="bookForm__input"
         />
 
-        <label>Genre</label>
+        <label className="bookForm__label">Genre</label>
         <select
             value={genre}
             onChange={handleChange}
             name="genre"
+            className="bookForm__input"
         >
             <option value="">--Select--</option>
             <option value="science_fiction">Science fiction</option>
@@ -91,7 +92,12 @@ const BookForm = ({
             <option value="horror">Horror</option>
         </select>
 
-        <button type="submit">Submit</button>
+        <button
+            type="submit"
+            className="bookForm__submit"
+        >
+            Submit
+        </button>
     </form>
 );
 

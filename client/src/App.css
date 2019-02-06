@@ -6,6 +6,10 @@ a:link, a:visited, a:focus, a:hover, a:active {
   color: white;
 }
 
+*:focus {
+  outline: none;
+}
+
 .App-content {
   background-color: #282c34;
   min-height: 100vh;
@@ -72,8 +76,33 @@ a:link, a:visited, a:focus, a:hover, a:active {
   align-items: flex-start;
 }
 
+.bookForm__label {
+  font-size: 1rem;
+}
+
 .bookForm__input {
   width: 100%;
+  border: 0;
+  border-radius: 1px; 
+  margin-bottom: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.bookForm__submit {
+  background-color: blue;
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.bookForm__submit:active {
+  filter: saturate(150%);
 }
 
 .show {
