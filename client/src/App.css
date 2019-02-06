@@ -67,6 +67,30 @@ a:link, a:visited, a:focus, a:hover, a:active {
 
 .book {
   width: 50%;
+  background-color: #35605A;
+  padding: 20px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 6px #6B818C;
+}
+
+.book__label {
+  font-size: 0.8rem;
+}
+
+.book__title {
+  font-size: 1.5rem;
+  margin:0;
+}
+
+.book__subtitle {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.book__field {
+  font-size: 1.1rem;
+  margin: 0.1rem 0;
+  font-weight: bold;
 }
 
 .bookForm {
